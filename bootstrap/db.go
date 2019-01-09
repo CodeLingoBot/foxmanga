@@ -6,11 +6,11 @@ import (
 	"github.com/go-xorm/xorm"
 )
 
-var engine *xorm.Engine
+var database *xorm.Engine
 
 func main() {
 	var err error
-	engine, err = xorm.NewEngine("mysql", "hieppp:123456@tcp(localhost:3306)/slocker?charset=utf8")
+	database, err = xorm.NewEngine("mysql", "hieppp:123456@tcp(localhost:3306)/slocker?charset=utf8")
 	if err != nil{
 		panic(err)
 	}
