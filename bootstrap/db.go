@@ -8,7 +8,7 @@ import (
 
 var database *xorm.Engine
 
-func main() {
+func init() {
 	var err error
 	database, err = xorm.NewEngine("mysql", "hieppp:123456@tcp(localhost:3306)/slocker?charset=utf8")
 	if err != nil{

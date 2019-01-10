@@ -14,7 +14,8 @@ var (
 func init() {
 	err := g.Provide(
 		&inject.Object{Value: &database, Name: "database"},
-		&inject.Object{Value: category.GetCategoryService(), Name: "caterepo"},
+		//&inject.Object{Value: category.GetCategoryService(), Name: "caterepo"},
+		&inject.Object{Value: category.CreateRepository(), Name: "caterepo"},
 	)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
