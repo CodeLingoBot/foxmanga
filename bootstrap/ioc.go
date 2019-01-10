@@ -1,6 +1,7 @@
 package bootstrap
 
 import (
+	"Project/foxmanga/migration"
 	"Project/foxmanga/pkg/category"
 	"fmt"
 	"github.com/facebookgo/inject"
@@ -12,8 +13,9 @@ var (
 )
 
 func init() {
+	_m := migration.GetMigration(database)
 	err := g.Provide(
-		&inject.Object{Value: &database, Name: "database"},
+		&inject.Object{Value: database, Name: "database"},
 		//&inject.Object{Value: category.GetCategoryService(), Name: "caterepo"},
 		&inject.Object{Value: category.CreateRepository(), Name: "caterepo"},
 	)
@@ -28,5 +30,9 @@ func init() {
 	if err := g.Populate(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
+	}
+	erra := _m.Migrate()
+	if erra != nil {
+		panic(erra)
 	}
 }
