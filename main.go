@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "Project/foxmanga/bootstrap"
+	_ "github.com/foxmanga/bootstrap"
 	"github.com/gin-gonic/gin"
 	"time"
 )

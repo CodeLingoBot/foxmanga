@@ -1,17 +1,21 @@
 package bootstrap
 
-
 import (
+	"fmt"
+	"github.com/foxmanga/config"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/go-xorm/xorm"
+	"github.com/jinzhu/gorm"
 )
 
-var database *xorm.Engine
+var database *gorm.DB
 
 func init() {
-	var err error
-	database, err = xorm.NewEngine("mysql", "hieppp:123456@tcp(localhost:3306)/foxmanga?charset=utf8")
-	if err != nil{
-		panic(err)
+	db, err := gorm.Open("mysql", fmt.Sprintf("%s:%s@/%s?charset=utf8&parseTime=True&loc=Local",
+		config.Configuration.Database.User,
+		config.Configuration.Database.Password,
+		config.Configuration.Database.Name))
+	if err != nil {
+
 	}
+	defer db.Close()
 }
