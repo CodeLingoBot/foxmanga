@@ -108,9 +108,12 @@
   version = "v3.3.0"
 
 [[projects]]
-  digest = "1:d4e6e8584d0a94ce567d237e19192dae44d57d2767ac7e1d7fbf5626d176381a"
+  digest = "1:420ec120a74b22e8a967f2a2928d89503e373848c0d4447d16ddbbbef9a9965c"
   name = "github.com/jinzhu/gorm"
-  packages = ["."]
+  packages = [
+    ".",
+    "dialects/mysql",
+  ]
   pruneopts = "UT"
   revision = "472c70caa40267cb89fd8facb07fe6454b578626"
   version = "v1.9.2"
@@ -298,12 +301,12 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gin-gonic/gin",
-    "github.com/go-sql-driver/mysql",
     "github.com/go-xorm/xorm",
     "github.com/go-xorm/xorm/migrate",
     "github.com/golang/protobuf/ptypes/timestamp",
     "github.com/jackc/pgx/pgtype/ext/satori-uuid",
     "github.com/jinzhu/gorm",
+    "github.com/jinzhu/gorm/dialects/mysql",
     "github.com/spf13/viper",
   ]
   solver-name = "gps-cdcl"

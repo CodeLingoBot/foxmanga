@@ -27,7 +27,7 @@ func initialize() {
 		if err != nil {
 			panic(fmt.Errorf("Fatal error _config file: %s \n", err))
 		}
-		if err := viper.Unmarshal(_config); err == nil {
+		if err := viper.Unmarshal(_config); err != nil {
 			panic(fmt.Errorf("Fatal error Unmarshal: %s \n", err))
 		}
 		config.SetConfig(_config)

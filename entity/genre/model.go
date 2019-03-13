@@ -4,7 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type Story struct {
+type Genre struct {
 	gorm.Model
 	Name        string `gorm:"type:varchar(255)"`
 }
